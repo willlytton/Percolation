@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e67f4f8b-c224-4285-9fab-410b9e145a8e" name="Changes" comment="First commit....debugging">
-      <change afterPath="$PROJECT_DIR$/src/Percolation.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/PercolationStats.java" afterDir="false" />
+    <list default="true" id="e67f4f8b-c224-4285-9fab-410b9e145a8e" name="Changes" comment="Not throwing out of bounds exception. Need to figure out if index of site coordinates is giving correct id">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Percolation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Percolation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/PercolationStats.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PercolationStats" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,21 +33,34 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Problems",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2"
   }
-}</component>
-  <component name="RunManager">
+}]]></component>
+  <component name="RunManager" selected="Application.PercolationVisualizer">
+    <configuration name="InteractivePercolationVisualizer" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="InteractivePercolationVisualizer" />
+      <module name="perco" />
+      <option name="PROGRAM_PARAMETERS" value="8" />
+      <method v="2" />
+    </configuration>
     <configuration name="Percolation" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="Percolation" />
       <module name="perco" />
+      <method v="2" />
+    </configuration>
+    <configuration name="PercolationVisualizer" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="PercolationVisualizer" />
+      <module name="perco" />
+      <option name="PROGRAM_PARAMETERS" value="princeton96.txt" />
       <method v="2" />
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -63,7 +76,7 @@
       <option name="presentableId" value="Default" />
       <updated>1666721786900</updated>
       <workItem from="1666721789069" duration="9472000" />
-      <workItem from="1666812553568" duration="41442000" />
+      <workItem from="1666812553568" duration="74202000" />
     </task>
     <task id="LOCAL-00001" summary="First commit....debugging">
       <created>1666984189056</created>
@@ -72,7 +85,14 @@
       <option name="project" value="LOCAL" />
       <updated>1666984189056</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Not throwing out of bounds exception. Need to figure out if index of site coordinates is giving correct id">
+      <created>1666990864423</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1666990864423</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -91,6 +111,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="First commit....debugging" />
-    <option name="LAST_COMMIT_MESSAGE" value="First commit....debugging" />
+    <MESSAGE value="Not throwing out of bounds exception. Need to figure out if index of site coordinates is giving correct id" />
+    <option name="LAST_COMMIT_MESSAGE" value="Not throwing out of bounds exception. Need to figure out if index of site coordinates is giving correct id" />
   </component>
 </project>
