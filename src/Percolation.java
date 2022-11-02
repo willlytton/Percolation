@@ -8,7 +8,7 @@ public class Percolation {
    */
     private final boolean[] grid;
     private final int size; // reference to constructor parameter that takes in n size of grid
-    private  int openSites; // number of open sites in boolean grid array
+    private int openSites; // number of open sites in boolean grid array
     // create virtual top
     private final int top;
     // creates virtual bottom
@@ -29,6 +29,7 @@ public class Percolation {
         }
         size = n;
         grid = new boolean[size * size + 2];
+
         top = 0;
         bottom = size * size + 1;
         // calls union find data structure
@@ -43,45 +44,47 @@ public class Percolation {
 //     */
     // opens the site (row, col) if it is not open already
     public void open(int row, int col) {
-        checkValid(row, col);
         // checks if site is open and if not it opens site on grid
+        checkValid(row, col);
         if (!isOpen(row, col)) {
-            int n = grid.length;
-            int currentIndex = indexOfArray(row, col);
+            currentIndex = indexOfArray(row, col);
             grid[currentIndex] = true;
             openSites++;
         }
+
             /* checks if open site is in top row and indexes it
             supposed to connect top row to virtual top root and bottom to bottom root
              */
         if (row == 1) {
-            unionFGrid.union(currentIndex, top);
+            unionFGrid.union(indexOfArray(row, col), top);
         }
 
         if (row == size) {
-            unionFGrid.union(currentIndex, bottom);
+            unionFGrid.union(indexOfArray(row, col), bottom);
         }
 
         // checks if site (row - 1) is above current one and if open does union operation
         if (row > 1 && isOpen(row - 1, col)) {
-            unionFGrid.union(currentIndex, indexOfArray(row - 1, col));
+            unionFGrid.union(indexOfArray(row, col), indexOfArray(row - 1, col));
         }
 
         // checks if (row site + 1) below is open and if so does union operation
         if (row < size && isOpen(row + 1, col)) {
-            unionFGrid.union(currentIndex, indexOfArray(row + 1, col));
+            unionFGrid.union(indexOfArray(row, col), indexOfArray(row + 1, col));
         }
 
         // checks adjacent (left cell - 1 from current) is open and does union op
         if (col > 1 && isOpen(row, col - 1)) {
-            unionFGrid.union(currentIndex , indexOfArray(row, col - 1));
+            unionFGrid.union(indexOfArray(row, col), indexOfArray(row, col - 1));
         }
 
         // checks adjacent (right + 1) cell is open
         if (col < size && isOpen(row, col + 1)) {
-            unionFGrid.union(currentIndex , indexOfArray(row, col + 1));
+            unionFGrid.union(indexOfArray(row, col), indexOfArray(row, col + 1));
         }
     }
+
+
 
     // is the site (row, col) open?
     public boolean isOpen(int row, int col) {
@@ -89,10 +92,16 @@ public class Percolation {
         return grid[indexOfArray(row, col)];
     }
 
+    // is row, col full
+    public boolean isFull(int row, int col) {
+        checkValid(row, col);
+        return (unionFGrid.find(indexOfArray(row, col)) == unionFGrid.find(top));
+    }
+
     // checks to see if indices are valid and between p: row and col or 1 and N
-    public void checkValid(int row, int col) {
+    private void checkValid(int row, int col) {
         int n = grid.length;
-        if (row < 1 && col < 1 && row >= n && col >= n) {
+        if (row < 1 && col < 1 && row >= n - 1 && col >= n - 1) {
             throw new IllegalArgumentException("site coordinate is out of bounds");
         }
     }
@@ -101,13 +110,7 @@ public class Percolation {
         // checks if site coordinate is valid
         checkValid(row, col);
         // returns index of array
-        return size * (row - 1) + (col - 1);
-    }
-
-    // is the site (row, col) full?
-    public boolean isFull(int row, int col) {
-        checkValid(row, col);
-        return (unionFGrid.find(indexOfArray(row, col)) == unionFGrid.find(top));
+        return currentIndex = size * (row - 1) + col;
     }
 
     // returns the number of open sites
@@ -120,9 +123,12 @@ public class Percolation {
         return (unionFGrid.find(0) == unionFGrid.find(bottom));
     }
 
-//    // test client (optional)
+    // test client (optional)
 //    public static void main(String[] args) {
 //        Percolation grid = new Percolation(10);
-
+//
+//        grid.open(1, 1);
+//        grid.isOpen(1, 1);
+//        grid.isFull(1, 1);
 
 }
